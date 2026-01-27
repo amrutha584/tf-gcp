@@ -22,14 +22,14 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
+    
       - id: auth
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: 'projects/237399708140/locations/global/workloadIdentityPools/github-actions/providers/github'
-          service_account: 'github-workload-identity@terrafor-project-483505.iam.gserviceaccount.com'
-
+          service_account: 'github-workload-identity@terraform-project-483505.iam.gserviceaccount.com'
 
       - name: "terraform init"
         run:  terraform init

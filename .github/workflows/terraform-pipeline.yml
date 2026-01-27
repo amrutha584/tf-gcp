@@ -9,7 +9,6 @@ permissions:
   contents: read
   id-token: write
   
-  workflow_dispatch: null
 jobs:
   terraform:
     name: terraform

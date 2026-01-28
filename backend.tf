@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket="tfgcp-bucket"
+    bucket="statefilebucket"
     prefix= "terraform/state"    
   }
 }

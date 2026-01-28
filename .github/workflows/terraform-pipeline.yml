@@ -24,7 +24,7 @@ on:
         description: 'Type "yes" to approve apply/destroy'
         required: true
         default: 'no'
-        
+
 permissions:
   contents: read
   id-token: write
@@ -51,11 +51,17 @@ jobs:
           terraform_version: 1.9.5   # pick the version you need    
       - name: terraform init
         run: terraform init
-      - name: terraform validate
-        run: terraform validate
-      - name: terraform plan
-        run: terraform plan
-      - name: terraform apply
-        run: terraform apply -auto-approve=false
-      - name: terraform destroy
-        run: terraform destroy -auto-approve=false
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        if: ${{ github.event.inputs.action == 'plan' }}
+        run: terraform plan -var="environment=${{ github.event.inputs.environment }}"
+
+      - name: Terraform Apply
+        if: ${{ github.event.inputs.action == 'apply' && github.event.inputs.approval == 'yes' }}
+        run: terraform apply -auto-approve -var="environment=${{ github.event.inputs.environment }}"
+
+      - name: Terraform Destroy
+        if: ${{ github.event.inputs.action == 'destroy' && github.event.inputs.approval == 'yes' }}
+        run: terraform destroy -auto-approve -var="environment=${{ github.event.inputs.environment }}"

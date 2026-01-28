@@ -5,6 +5,21 @@ on:
     branches:
       - main
   pull_request: null
+
+  inputs:
+      environment:
+        description: 'Target environment (dev/staging/prod)'
+        required: true
+        default: 'dev'
+      apply:
+        description: 'Set to true to apply changes'
+        required: true
+        default: 'false'
+      destroy:
+        description: 'Set to true to apply changes'
+        required: true
+        default: 'false'  
+
 permissions:
   contents: read
   id-token: write

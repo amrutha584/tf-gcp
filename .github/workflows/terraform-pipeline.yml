@@ -6,7 +6,8 @@ on:
       - main
   pull_request: null
 
-  inputs:
+  workflow_dispatch:
+   inputs:
       environment:
         description: 'Target environment (dev/staging/prod)'
         required: true

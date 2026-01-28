@@ -51,5 +51,7 @@ jobs:
         run: terraform validate
       - name: terraform plan
         run: terraform plan
+      - name: terraform apply
+        run: terraform apply -auto-approve=false
       - name: terraform destroy
-        run: terraform destroy
+        run: terraform destroy -auto-approve=false

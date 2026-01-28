@@ -12,13 +12,14 @@ on:
         description: 'Target environment (dev/staging/prod)'
         required: true
         default: 'dev'
-      apply:
-        description: 'Set to true to apply changes'
+      action:
+        description: 'Terraform action'
         required: true
         type: choice
         options:
-          - false
-          - true 
+          - plan
+          - apply
+          - destroy
 
 permissions:
   contents: read

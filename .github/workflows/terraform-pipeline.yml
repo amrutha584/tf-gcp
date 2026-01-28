@@ -15,11 +15,10 @@ on:
       apply:
         description: 'Set to true to apply changes'
         required: true
-        default: 'false'
-      destroy:
-        description: 'Set to true to apply changes'
-        required: true
-        default: 'false'  
+        type: choice
+        options:
+          - false
+          - true 
 
 permissions:
   contents: read

@@ -20,7 +20,11 @@ on:
           - plan
           - apply
           - destroy
-
+      approval:
+        description: 'Type "yes" to approve apply/destroy'
+        required: true
+        default: 'no'
+        
 permissions:
   contents: read
   id-token: write

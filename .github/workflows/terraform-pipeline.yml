@@ -61,12 +61,12 @@ jobs:
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
-        run: terraform plan -var="environment=${{ github.event.inputs }}"
+        run: terraform plan -var="environment=${{ github.event.inputs.environment }}"
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' && github.event.inputs.approval == 'yes' }}
-        run: terraform apply -auto-approve -var="environment=${{ github.event.inputs }}"
+        run: terraform apply -auto-approve -var="environment=${{ github.event.inputs.environment }}"
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' && github.event.inputs.approval == 'yes' }}
-        run: terraform destroy -auto-approve -var="environment=${{ github.event.inputs }}"
+        run: terraform destroy -auto-approve -var="environment=${{ github.event.inputs.environment }}"

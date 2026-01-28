@@ -8,14 +8,6 @@ on:
 
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Target environment'
-        required: true
-        type: choice
-        options:
-          - dev
-          - staging
-          - prod
       action:
         description: 'Terraform action'
         required: true
@@ -61,12 +53,12 @@ jobs:
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
-        run: terraform plan -var="environment=${{ github.event.inputs.environment }}"
+        run: terraform plan
 
       - name: Terraform Apply
-        if: ${{ github.event.inputs.action == 'apply' && github.event.inputs.approval == 'yes' }}
-        run: terraform apply -auto-approve -var="environment=${{ github.event.inputs.environment }}"
+        if: ${{ github.event.inputs.action == 'apply' }}
+        run: terraform apply -auto-approve
 
       - name: Terraform Destroy
-        if: ${{ github.event.inputs.action == 'destroy' && github.event.inputs.approval == 'yes' }}
-        run: terraform destroy -auto-approve -var="environment=${{ github.event.inputs.environment }}"
+        if: ${{ github.event.inputs.action == 'destroy' }}
+        run: terraform destroy -auto-approve

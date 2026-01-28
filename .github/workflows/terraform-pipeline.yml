@@ -7,11 +7,15 @@ on:
   pull_request: null
 
   workflow_dispatch:
-   inputs:
+    inputs:
       environment:
-        description: 'Target environment (dev/staging/prod)'
+        description: 'Target environment'
         required: true
-        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
       action:
         description: 'Terraform action'
         required: true
@@ -24,6 +28,7 @@ on:
         description: 'Type "yes" to approve apply/destroy'
         required: true
         default: 'no'
+
 
 permissions:
   contents: read

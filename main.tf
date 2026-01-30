@@ -1,8 +1,8 @@
 resource "google_storage_bucket" "storage-bucket" {
   
-  name= "tfgcp-bucket"
-  location = "us-central1"
-      project= "terrafor-project-483505"
-  storage_class = "standard"
-  force_destroy = true
+  name= var.bucket_name
+  location = var.location
+  project= var.project_id
+  storage_class = var.storage_class
+  force_destroy = var.force_destroy
 }

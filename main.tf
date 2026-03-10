@@ -9,7 +9,7 @@ resource "google_storage_bucket" "storage-bucket" {
 
 resource "google_sql_database_instance" "sqlserver_trial" {
   name             = var.sql_server_name
-  location = var.location
+  region = var.location
   project= var.project_id
   database_version = "SQLSERVER_2019_EXPRESS" # free-friendly edition
 

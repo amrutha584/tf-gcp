@@ -3,3 +3,4 @@ location         = "us-central1"
 bucket_name    = "my-terraform-bucket-78901"
 storage_class  = "STANDARD"
 force_destroy  = true
+sql_server_name = "gcp-sql-server-free"

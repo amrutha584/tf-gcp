@@ -33,3 +33,9 @@ variable "bucket_name" {
   description = "Name of the storage bucket"
   type        = string
 }
+
+
+variable "sql_server_name" {
+  description = "Name of the storage bucket"
+  type        = string
+}

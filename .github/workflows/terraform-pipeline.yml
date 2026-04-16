@@ -39,8 +39,8 @@ jobs:
       - id: auth
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: projects/237399708140/locations/global/workloadIdentityPools/github-actions/providers/github
-          service_account: github-workload-identity@terrafor-project-483505.iam.gserviceaccount.com
+          workload_identity_provider: projects/350987064647/locations/global/workloadIdentityPools/github-demo/providers/github
+          service_account: githubaction@gcpdata-492209.iam.gserviceaccount.com
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2

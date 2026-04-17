@@ -25,7 +25,16 @@ variable "gcpsubnet" {
 
 
 
-variable "gcpsubnet1" {
+variable "gcpsubnet2" {
+  
   description = "used for vpc creation"
   type        = string
+}
+
+
+variable "location2" {
+
+    description = "this to know the project id"
+    type = string
+  
 }

@@ -10,6 +10,6 @@ terraform {
 provider "google" {
 
     region = "us-central1"
-    project= "terrafor-project-483505"
+    project= "gcpdata-492209"
 
 }

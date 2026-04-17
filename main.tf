@@ -31,7 +31,7 @@ resource "google_compute_subnetwork" "gcpsubnet2" {
 resource "google_compute_firewall" "allowssh" {
   
   name = var.allowssh
-  network = google_compute_subnetwork.gcpsubnet.id
+  network = google_compute_network.gcpnetwork.id
 
   allow {
     

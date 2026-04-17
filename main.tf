@@ -21,7 +21,7 @@ resource "google_compute_subnetwork" "gcpsubnet1" {
 
   name = var.gcpsubnet1
   network = google_compute_network.gcpnetwork.id
-  ip_cidr_range = "10.1.0.0/20"
+  ip_cidr_range = "10.1.0.0/24"
   region = "us-east1"
   project = var.project_id
   

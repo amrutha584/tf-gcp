@@ -22,3 +22,10 @@ variable "gcpsubnet" {
   description = "used for vpc creation"
   type        = string
 }
+
+
+
+variable "gcpsubnet1" {
+  description = "used for vpc creation"
+  type        = string
+}

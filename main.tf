@@ -1,6 +1,7 @@
 resource "google_compute_network" "gcpnetwork" {
 
   name = var.gcpnetwork
+  auto_create_subnetworks = "false"
   
   
 }

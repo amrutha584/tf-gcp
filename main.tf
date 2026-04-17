@@ -16,3 +16,14 @@ resource "google_compute_subnetwork" "gcpsubnet" {
   
   
 }
+
+resource "google_compute_subnetwork" "gcpsubnet1" {
+
+  name = var.gcpsubnet
+  network = google_compute_network.gcpnetwork.id
+  ip_cidr_range = "10.1.0.0/28"
+  region = "us-central1"
+  project = var.project_id
+  
+  
+}

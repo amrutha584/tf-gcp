@@ -27,3 +27,18 @@ resource "google_compute_subnetwork" "gcpsubnet2" {
   network = google_compute_network.gcpnetwork.id
 
 }
+
+resource "google_compute_firewall" "allowssh" {
+  
+  name = var.allowssh
+  network = google_compute_subnetwork.gcpsubnet.id
+
+  allow {
+    
+    protocol = "tcp"
+    ports = [ "22" ]
+  }
+
+  source_ranges = [ "0.0.0.0/0" ]
+  target_tags = [ "ssh-enabled" ]
+}

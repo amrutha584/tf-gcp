@@ -38,3 +38,11 @@ variable "location2" {
     type = string
   
 }
+
+
+variable "allowssh" {
+
+    description = "this to know the project id"
+    type = string
+  
+}

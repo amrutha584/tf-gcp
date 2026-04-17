@@ -1,32 +1,17 @@
-resource "google_storage_bucket" "storage-bucket" {
+resource "google_compute_network" "gcpnetwork" {
+
+  name = var.gcpnetwork
   
-  name= var.bucket_name
-  location = var.location
-  project= var.project_id
-  storage_class = var.storage_class
-  force_destroy = var.force_destroy
+  
 }
 
-resource "google_sql_database_instance" "sqlserver_trial" {
-  name             = var.sql_server_name
-  region = var.location
-  project= var.project_id
-  database_version = "SQLSERVER_2019_EXPRESS" # free-friendly edition
+resource "google_compute_subnetwork" "gcpsubnet" {
 
-  settings {
-    tier = "db-custom-1-3840" # small tier to save credits
-    backup_configuration {
-      enabled = true
-    }
-  }
-
-  root_password = "TrialPassword123!"
-  deletion_protection = false
+  name = var.gcpsubnet
+  network = google_compute_network.gcpnetwork.id
+  ip_cidr_range = "10.1.0.0/24"
+  region = "us-central1"
+  project = var.project_id
+  
+  
 }
-
-resource "google_sql_user" "trial_user" {
-  name     = "testuser"
-  instance = google_sql_database_instance.sqlserver_trial.name
-  password = "SecureTrialPass!"
-}
-

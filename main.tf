@@ -42,3 +42,23 @@ resource "google_compute_firewall" "allowssh" {
   source_ranges = [ "0.0.0.0/0" ]
   target_tags = [ "ssh-enabled" ]
 }
+
+
+resource "google_compute_network" "gcpnetwork-peering" {
+
+  name = "network-peering"
+  auto_create_subnetworks = "false"
+  
+  
+}
+
+resource "google_compute_subnetwork" "gcppeeringsubnet" {
+
+  name = "peering-subnet"
+  network = google_compute_network.gcpnetwork-peering
+  ip_cidr_range = "10.3.0.0/24"
+  region = "us-central1"
+  project = "gcp-devops-493505"
+  
+  
+}

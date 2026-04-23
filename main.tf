@@ -62,3 +62,11 @@ resource "google_compute_subnetwork" "gcppeeringsubnet" {
   
   
 }
+
+resource "google_storage_bucket" "storagebq" {
+
+name = "bqstorage"
+location = "us-central1"
+storage_class = "standard"
+
+}
